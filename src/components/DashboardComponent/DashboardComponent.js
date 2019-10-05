@@ -1,8 +1,48 @@
-import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 
-class DashboardComponent extends Component {
+import getGenevaLastRecord from '../../data/queries';
+
+import CircularGaugeComponent from "./CircularGaugeComponent";
+
+class DashboardComponent extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      geneva_data: {}
+    };
+
+    this.tickData = this.tickData.bind(this);
+  }
+
+  timerID;
+
+
+  componentDidMount() {
+    this.timerID = setInterval(() => this.tickData(), 3000);
+  }
+
+
+  tickData() {
+    getGenevaLastRecord().then(value => {
+      let last_record = value.data.data.store_metrics[0];
+
+      // formatting the last Geneva record
+      let formatted_last_record = {
+        cpu: last_record.cpu,
+        gpu: parseFloat(last_record.gpu),
+        memory:parseFloat(last_record.memory),
+        location: last_record.location,
+        timestamp: last_record.timestamp
+      }
+
+      this.setState({ geneva_data: formatted_last_record }, () => console.log(this.state));
+    });
+  }
+
   render() {
+
     return (
       <div>
 
@@ -10,31 +50,16 @@ class DashboardComponent extends Component {
           <div className="container-fluid">
             <div className="main">
 
-              {/*First Row */}
-
-              <div className="row mt-4">
-                <div className="col-md-5">
-                  <div className="box columnbox mt-4">
-                    <div id="columnchart">
-                      COLUMN
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-7">
-                  <div className="box  mt-4">
-                    <div id="linechart">
-                      LINE
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               {/* Second Row */ }
               <div className="row">
                 <div className="col-md-5">
                   <div className="box radialbox mt-4">
-                    <div id="circlechart">
-                      CIRCEL
+                    <div>
+
+                      <CircularGaugeComponent
+                        data={this.state.geneva_data}
+                      />
                     </div>
                   </div>
                 </div>

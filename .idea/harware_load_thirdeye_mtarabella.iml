@@ -9,5 +9,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="ECMAScript 6" level="project" />
+    <orderEntry type="library" name="Babel" level="project" />
+    <orderEntry type="library" name="ES2016" level="project" />
   </component>
 </module>
