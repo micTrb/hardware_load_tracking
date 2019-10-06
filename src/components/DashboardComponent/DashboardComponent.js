@@ -1,46 +1,84 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 
-import getGenevaLastRecord from '../../data/queries';
+import { getLastGenevaRecord,
+  getLastWeekGeneva,
+  getLastFawltyTowersRecord
+} from '../../data/queryFunctions';
 
 import CircularGaugeComponent from "./CircularGaugeComponent";
+
 
 class DashboardComponent extends React.Component {
 
   constructor(props) {
     super(props);
 
-
     this.state = {
-      geneva_data: { cpu: 0, gpu: 0, memory: 0, location: "", timestamp: ""}
+      geneva_data: { cpu: 0, gpu: 0, memory:0, location: "", timestamp: "" },
+      fawlty_towers_data: { cpu: 0, gpu: 0, memory:0, location: "", timestamp: "" },
+      geneva_last_week: [],
     };
 
-    this.tickData = this.tickData.bind(this);
+    this.tickLastData = this.tickLastData.bind(this);
+    this.getLastWeekGenevaData = this.getLastWeekGenevaData.bind(this);
   }
 
+  componentWillMount() {
+    this.tickLastData();
+    this.getLastWeekGenevaData();
+  }
 
   componentDidMount() {
-    setTimeout(() => this.tickData(), 100)
-    setInterval(() => this.tickData(), 60000)
+    setInterval(() => this.tickLastData(), 3000);
+    setTimeout(() => this.getLastWeekGenevaData(), 1000 )
   }
 
 
-  tickData() {
-    getGenevaLastRecord().then(value => {
-      let last_record = value.data.data.store_metrics[0];
+  //Functions for radial gauge charts
+  /****************************************************/
 
-      // formatting the last Geneva record
-      let formatted_last_record = {
-        cpu: last_record.cpu,
-        gpu: parseFloat(last_record.gpu),
-        memory:parseFloat(last_record.memory),
-        location: last_record.location,
-        timestamp: last_record.timestamp
-      }
+  lastRecordPrep(data) {
+    let last_record = data;
 
-      this.setState({ geneva_data: formatted_last_record }, () => console.log(this.state));
+    // formatting the last record
+    let formatted_last_record = {
+      cpu: last_record.cpu,
+      gpu: parseFloat(last_record.gpu),
+      memory: parseFloat(last_record.memory),
+      location: last_record.location,
+      timestamp: last_record.timestamp
+    }
+    return formatted_last_record;
+  }
+
+
+  tickLastData() {
+    getLastGenevaRecord().then(value => {
+      console.log(value);
+      this.setState({ geneva_data: this.lastRecordPrep(value.data.data.store_metrics[0]) }, () => console.log(this.state));
+    });
+
+    getLastFawltyTowersRecord().then(value => {
+      this.setState({ fawlty_towers_data: this.lastRecordPrep(value.data.data.store_metrics[0]) }, () => console.log(this.state));
     });
   }
+
+
+  //Functions for line charts
+  /****************************************************/
+
+  getLastWeekGenevaData() {
+    getLastWeekGeneva().then(value => {
+      console.log(value);
+      this.setState({ geneva_last_week: value.data.data.store_metrics })
+    });
+  }
+
+
+
+
+
 
 
 
@@ -48,50 +86,37 @@ class DashboardComponent extends React.Component {
 
     return (
       <div>
-
         <div className="content-area">
           <div className="container-fluid">
-            <div className="main">
+            <div className="main" style={{paddingTop: "50px"}}>
 
-
-              {/* Second Row */ }
-              <div className="row">
-                <div className="col-md-5">
-                  <div className="box radialbox mt-4">
-                    <div>
-
-                      <CircularGaugeComponent
-                        data={this.state.geneva_data}
-                      />
-
-                      <CircularGaugeComponent
-                        data={this.state.geneva_data}
-                      />
-
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-md-7">
-                  <div className="box mt-4">
-                    <div className="mt-4">
-                      <div id="progress1"> Progress 1 </div>
-                    </div>
-                    <div className="mt-4">
-                      <div id="progress2"> Progress </div>
-                    </div>
-                    <div className="mt-4">
-                      <div id="progress3"> Progress 3</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {/* First Row */ }
 
               <div className="row">
-                <div className="float-right edit-on-codepen">
 
+                {/*Geneva Radial Gauge*/}
+                <div className="col-md-6">
+                  <CircularGaugeComponent
+                    data={this.state.geneva_data}
+                  />
                 </div>
+                <div className="col-md-6">
+                  <CircularGaugeComponent
+                    data={this.state.fawlty_towers_data}
+                  />
+                </div>
+
+
               </div>
+              <div className="row">
+              </div>
+
+
+
+
+
+
+
             </div>
           </div>
         </div>
