@@ -5,16 +5,16 @@ import _ from 'lodash';
 class CircularGaugeComponent extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
 
     this.state = {
       options: {
         labels: ['CPU', 'GPU', 'MEMORY'],
-        series: [32, 53, 51],
-        /*colors: [this.colorFunction(this.state.series[0], '#00974a', '#ff3400'),
-          this.colorFunction(this.state.series[1], '#0e4a97', '#ff3400'),
-          this.colorFunction(this.state.series[2], '#b28000', '#ff3400')
-        ],*/
-        colors: ['#00974a', '#ff3400', '#00974a'],
+        colors: [
+          this.colorFunction(this.props.data.cpu, '#00974a', '#ff3400'),
+          this.colorFunction(this.props.data.gpu, '#00974a', '#ff3400'),
+          this.colorFunction(this.props.data.memory, '#00974a', '#ff3400')
+        ],
         radialBar: {
           dataLabels: {
             name: {
@@ -28,23 +28,23 @@ class CircularGaugeComponent extends React.Component {
               label: 'Total',
               formatter: function (w) {
                 // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-                return 249
+                return w
               }
             }
           }
         }
       },
-      series: [32, 45, 67],
-
-
-      anomalies: [],
+      series: [],
     }
+  }
+
+  componentWillMount() {
+    this.updateSeries(this.props);
   }
 
   componentWillUpdate(nextProps) {
     if(this.props.data !== nextProps.data) {
       this.updateSeries(nextProps);
-      this.checkAnomalies({cpu: 81.3, gpu: 84.3, memory: 77.3});
       this.updateColors(nextProps);
     }
   }
@@ -70,27 +70,12 @@ class CircularGaugeComponent extends React.Component {
 
     let values = _.values(hardware_load_obj);
 
-    let new_colors = values.map(val => () => console.log(val));
+    let new_colors = values.map(val => this.colorFunction(val, '#00974a', '#ff2f07'));
 
-    return new_colors;
-
+    this.setState({options: { colors: new_colors }}, () => console.log(this.state.options.colors));
   }
 
-  checkAnomalies(newProps) {
-    let anomalies = [];
-    console.log(newProps);
-    for(let key in newProps) {
-      console.log(newProps[key]);
-      if(newProps[key] > 80) {
-        anomalies.push({
-          key: key,
-          value: newProps[key]
-        })
-      };
-    }
 
-    this.setState({anomalies: anomalies}, () => console.log(this.state.anomalies));
-  }
 
   colorFunction(value, normalColor, alertColor) {
     if (value < 80) {
@@ -103,21 +88,6 @@ class CircularGaugeComponent extends React.Component {
 
 
 
-
-
-  alertBox() {
-    return(
-      <div>
-        <h6 color="red">ALERT</h6>
-        <ul>
-          {this.state.anomalies.map((element) => <li key={element.key}>{element.key} is {element.value}</li>)}
-        </ul>
-
-      </div>
-    )
-  }
-
-
   render() {
      return(
         <div id="chart">
@@ -127,7 +97,6 @@ class CircularGaugeComponent extends React.Component {
             type="radialBar"
             height="350"
           />
-          {this.alertBox()}
         </div>
 
 

@@ -9,18 +9,19 @@ class DashboardComponent extends React.Component {
 
   constructor(props) {
     super(props);
+
+
     this.state = {
-      geneva_data: {}
+      geneva_data: { cpu: 0, gpu: 0, memory: 0, location: "", timestamp: ""}
     };
 
     this.tickData = this.tickData.bind(this);
   }
 
-  timerID;
-
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.tickData(), 3000);
+    setTimeout(() => this.tickData(), 100)
+    setInterval(() => this.tickData(), 60000)
   }
 
 
@@ -41,6 +42,8 @@ class DashboardComponent extends React.Component {
     });
   }
 
+
+
   render() {
 
     return (
@@ -60,6 +63,11 @@ class DashboardComponent extends React.Component {
                       <CircularGaugeComponent
                         data={this.state.geneva_data}
                       />
+
+                      <CircularGaugeComponent
+                        data={this.state.geneva_data}
+                      />
+
                     </div>
                   </div>
                 </div>

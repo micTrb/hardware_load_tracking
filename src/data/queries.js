@@ -14,7 +14,7 @@ export default function getLastGenevaRecord() {
     data: {
       query: `
         query {
-          store_metrics(limit: 1, order_by: {timestamp: desc}){
+          store_metrics(limit: 2, order_by: {timestamp: desc}) {
             cpu,
             gpu,
             memory,
@@ -26,6 +26,4 @@ export default function getLastGenevaRecord() {
     },
     responseType: 'json'
   }).catch(error => { return error });
-
-
 }

@@ -2,35 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31b7b310-3869-453c-90d0-70ebd89afb6b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Babel.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ECMAScript_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ES2016.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/actionTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/queries.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/url.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reducers/logReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/harware_load_thirdeye_mtarabella.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/harware_load_thirdeye_mtarabella.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DashboardComponent/CircularGaugeComponent/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DashboardComponent/DashboardComponent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/LogsActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DashboardComponent/DashboardComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DashboardComponent/DashboardComponent.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DashboardComponent/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/queries.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+            <state relative-caret-position="399">
+              <caret line="51" column="38" lean-forward="true" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -64,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="721">
+              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -76,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data/queries.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="272">
+              <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -123,9 +98,9 @@
         <option value="$PROJECT_DIR$/src/actions/actions.js" />
         <option value="$PROJECT_DIR$/src/actions/LogsActions.js" />
         <option value="$PROJECT_DIR$/src/data/url.js" />
-        <option value="$PROJECT_DIR$/src/data/queries.js" />
-        <option value="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" />
         <option value="$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js" />
+        <option value="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" />
+        <option value="$PROJECT_DIR$/src/data/queries.js" />
       </list>
     </option>
   </component>
@@ -141,10 +116,10 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="34" />
+    <option name="x" value="80" />
     <option name="y" value="23" />
-    <option name="width" value="1813" />
-    <option name="height" value="1096" />
+    <option name="width" value="1840" />
+    <option name="height" value="934" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -166,6 +141,25 @@
               <item name="harware_load_thirdeye_mtarabella" type="b2602c69:ProjectViewProjectNode" />
               <item name="harware_load_thirdeye_mtarabella" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harware_load_thirdeye_mtarabella" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harware_load_thirdeye_mtarabella" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harware_load_thirdeye_mtarabella" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harware_load_thirdeye_mtarabella" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="DashboardComponent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harware_load_thirdeye_mtarabella" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harware_load_thirdeye_mtarabella" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -238,22 +232,22 @@
       <workItem from="1570201167902" duration="5416000" />
       <workItem from="1570208529537" duration="188000" />
       <workItem from="1570267281467" duration="327000" />
-      <workItem from="1570267641847" duration="17318000" />
+      <workItem from="1570267641847" duration="17361000" />
+      <workItem from="1570349146018" duration="6103000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35791000" />
+    <option name="totallyTimeSpent" value="41937000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="34" y="23" width="1813" height="1096" extended-state="0" />
+    <frame x="80" y="23" width="1813" height="1096" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.19921875" />
       <window_info id="Structure" order="1" sideWeight="0.5007429" side_tool="true" weight="0.24959128" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="GraphQL" weight="0.32968128" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.97011954" />
@@ -264,7 +258,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32768923" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.26693228" />
+      <window_info anchor="bottom" id="GraphQL" order="11" weight="0.32968128" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -306,9 +301,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logo.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logo.svg" />
     <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -348,13 +341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/logReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/actionTypes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -376,6 +362,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/data/url.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -383,17 +376,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/queries.js">
+    <entry file="file://$PROJECT_DIR$/src/reducers/logReducer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        <state relative-caret-position="221">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -406,8 +392,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+        <state relative-caret-position="399">
+          <caret line="51" column="38" lean-forward="true" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
@@ -416,11 +402,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="721">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/queries.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
         </state>
       </provider>
     </entry>
