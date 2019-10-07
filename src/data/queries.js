@@ -10,7 +10,6 @@ function getWeekAgoFormattedDate() {
   a_week_ago.setDate(past_week_day);
 
   let a_week_ago_formatted = dateFormatter(a_week_ago);
-  console.log(a_week_ago_formatted);
   return a_week_ago_formatted;
 }
 
@@ -20,7 +19,6 @@ function getYesterdayFormattedDate() {
   yesterday.setDate(past_week_day);
 
   let yesterday_formatted = dateFormatter(yesterday);
-  console.log(yesterday_formatted);
   return yesterday_formatted;
 }
 
@@ -43,7 +41,6 @@ function getAnHourAgoFormattedTime() {
   hour_ago.setHours(past_hour);
   let hour_ago_formatted = dateTimeFormatter(hour_ago);
 
-  console.log(hour_ago_formatted);
   return hour_ago_formatted;
 }
 
@@ -155,3 +152,6 @@ export const lastHourGenevaQuery = `
     }
   }
 `;
+
+console.log(getAnHourAgoFormattedTime());
+console.log(getNowFormattedTime());

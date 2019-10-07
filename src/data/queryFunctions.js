@@ -84,3 +84,4 @@ export function getLastHourGeneva() {
     responseType: 'json'
   }).catch(error => { return error });
 }
+;

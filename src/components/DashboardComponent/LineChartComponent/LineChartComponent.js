@@ -1,5 +1,8 @@
 import React from 'react';
-import ReactApexCharts from 'react-apexcharts'
+import ReactApexCharts from 'react-apexcharts';
+
+import {getLastHourGeneva, getLastWeekGeneva, getYesterdayGeneva} from "../../../data/queryFunctions";
+
 
 class LineChartComponent extends React.Component {
 
@@ -34,9 +37,7 @@ class LineChartComponent extends React.Component {
           }
         },
         xaxis: {
-          categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan',
-            '10 Jan', '11 Jan', '12 Jan'
-          ],
+          categories: [...Array(10)].map((_, i) => "1"),
         },
         tooltip: {
           y: [{
@@ -64,9 +65,9 @@ class LineChartComponent extends React.Component {
         }
       },
       series: [{
-        name: "Session Duration",
-        data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
-      },
+          name: "Session Duration",
+          data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+        },
         {
           name: "Page Views",
           data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
@@ -77,20 +78,85 @@ class LineChartComponent extends React.Component {
         }
       ],
     }
+    this.getWeekData = this.getWeekData.bind(this);
+
   }
 
-  componentWillMount() {
+
+  dataPreparator(data) {
+    let log = data;
+
+    // formatting the last record
+    let formatted_log = {
+      cpu: (data.cpu * 100).toFixed(2),
+      gpu: (parseFloat(data.gpu) * 100).toFixed(2),
+      memory: (parseFloat(data.memory) * 100).toFixed(2),
+      location: data.location,
+      timestamp: data.timestamp
+    }
+    return formatted_log;
   }
+
+
+  makeSeries(objArr, hardware_name) {
+    let series_array = [];
+    var prop = hardware_name;
+    for(let i = 0; i < objArr.length; i++) {
+      series_array.push(objArr[i][prop])
+    }
+
+    console.log(series_array);
+  }
+
+  makeSeriesArray(objArray) {
+    let cpu_label = "CPU",
+        gpu_label = "GPU",
+        memory_label = "RAM";
+
+    let series_array = [{
+        name: cpu_label,
+        data: this.makeSeries(objArray, "cpu")
+      },
+      {
+        name: gpu_label,
+        data: this.makeSeries(objArray, "gpu")
+      },
+      {
+        name: memory_label,
+        data: this.makeSeries(objArray, "memory")
+    }];
+  }
+
+  getWeekData() {
+    getLastWeekGeneva().then(response => {
+
+      let metrics = response.data.data.store_metrics;
+      let formatted_metrics = metrics.map(data => this.dataPreparator(data));
+
+      console.log(formatted_metrics);
+      this.setState({
+        series: this.makeSeriesArray(formatted_metrics)
+      });
+    })
+  }
+
 
 
   render() {
 
     return (
+
       <div id="chart">
+        <button
+          onClick={this.getWeekData}
+          className="bt btn-primary">
+            { "GET WEEK "}
+        </button>
         <ReactApexCharts options={this.state.options} series={this.state.series} type="line" height="350"/>
       </div>
     )
   }
+
 }
 
 export default LineChartComponent;
