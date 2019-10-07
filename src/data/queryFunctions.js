@@ -2,10 +2,18 @@ import axios from 'axios';
 
 import {
   lastGenevaRecordQuery,
-  lastFawltyTowersRecordQuery, lastWeekGenevaQuery
+  lastFawltyTowersRecordQuery,
+  lastWeekGenevaQuery,
+  yesterdayGenevaQuery,
+  lastHourGenevaQuery
 } from "./queries";
 
 import {endpoint_url, headers} from "./queryConfig";
+
+
+/**********************************************************************************************************************/
+/* LAST DATA */
+
 
 
 //Geneva city last data
@@ -35,7 +43,11 @@ export function getLastFawltyTowersRecord() {
   }).catch(error => { return error });
 }
 
-//Geneva city last week data
+
+/**********************************************************************************************************************/
+/* RANGES DATA */
+
+//Geneva city time ranges data
 export function getLastWeekGeneva() {
   return axios({
     method: 'post',
@@ -48,4 +60,27 @@ export function getLastWeekGeneva() {
   }).catch(error => { return error });
 }
 
-getLastWeekGeneva().then(value => console.log(value));
+export function getYesterdayGeneva() {
+  return axios({
+    method: 'post',
+    url: endpoint_url,
+    headers: headers,
+    data: {
+      query: yesterdayGenevaQuery
+    },
+    responseType: 'json'
+  }).catch(error => { return error });
+}
+
+
+export function getLastHourGeneva() {
+  return axios({
+    method: 'post',
+    url: endpoint_url,
+    headers: headers,
+    data: {
+      query: lastHourGenevaQuery
+    },
+    responseType: 'json'
+  }).catch(error => { return error });
+}

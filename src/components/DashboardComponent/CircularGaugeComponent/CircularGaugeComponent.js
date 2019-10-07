@@ -58,13 +58,13 @@ class CircularGaugeComponent extends React.Component {
   //Updates functions
   updateSeries(newProps) {
     let values = this.dataPrep(newProps);
-    this.setState({series: values}, () => console.log(this.state));
+    this.setState({series: values});
   }
 
   updateColors(newProps) {
     let values = this.dataPrep(newProps);
     let new_colors = values.map(val => this.colorFunction(val, '#00974a', '#ff2f07'));
-    this.setState({options: { colors: new_colors }}, () => console.log(this.state.options.colors));
+    this.setState({options: { colors: new_colors }});
   }
 
 

@@ -1,12 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 
-import { getLastGenevaRecord,
-  getLastWeekGeneva,
-  getLastFawltyTowersRecord
-} from '../../data/queryFunctions';
+import { getLastGenevaRecord, getLastFawltyTowersRecord } from '../../data/queryFunctions';
 
 import CircularGaugeComponent from "./CircularGaugeComponent";
+import LineChartComponent from "./LineChartComponent";
 
 
 class DashboardComponent extends React.Component {
@@ -17,21 +15,30 @@ class DashboardComponent extends React.Component {
     this.state = {
       geneva_data: { cpu: 0, gpu: 0, memory:0, location: "", timestamp: "" },
       fawlty_towers_data: { cpu: 0, gpu: 0, memory:0, location: "", timestamp: "" },
-      geneva_last_week: [],
+      geneva_ranges: {
+        geneva_last_week: [],
+        geneva_last_day: [],
+        geneva_last_hour: [],
+        geneva_custom_range: []
+      },
+      fawlty_towers_ranges: {
+        fawlty_towers_last_week: [],
+        fawlty_towers_last_day: [],
+        fawlty_towers_last_hour: [],
+        fawlty_towers_custom_range: []
+      }
+
     };
 
     this.tickLastData = this.tickLastData.bind(this);
-    this.getLastWeekGenevaData = this.getLastWeekGenevaData.bind(this);
   }
 
   componentWillMount() {
     this.tickLastData();
-    this.getLastWeekGenevaData();
   }
 
   componentDidMount() {
     setInterval(() => this.tickLastData(), 3000);
-    setTimeout(() => this.getLastWeekGenevaData(), 1000 )
   }
 
 
@@ -55,29 +62,13 @@ class DashboardComponent extends React.Component {
 
   tickLastData() {
     getLastGenevaRecord().then(value => {
-      console.log(value);
-      this.setState({ geneva_data: this.lastRecordPrep(value.data.data.store_metrics[0]) }, () => console.log(this.state));
+      this.setState({ geneva_data: this.lastRecordPrep(value.data.data.store_metrics[0]) });
     });
 
     getLastFawltyTowersRecord().then(value => {
-      this.setState({ fawlty_towers_data: this.lastRecordPrep(value.data.data.store_metrics[0]) }, () => console.log(this.state));
+      this.setState({ fawlty_towers_data: this.lastRecordPrep(value.data.data.store_metrics[0]) });
     });
   }
-
-
-  //Functions for line charts
-  /****************************************************/
-
-  getLastWeekGenevaData() {
-    getLastWeekGeneva().then(value => {
-      console.log(value);
-      this.setState({ geneva_last_week: value.data.data.store_metrics })
-    });
-  }
-
-
-
-
 
 
 
@@ -95,27 +86,30 @@ class DashboardComponent extends React.Component {
               <div className="row">
 
                 {/*Geneva Radial Gauge*/}
-                <div className="col-md-6">
+                <div className="col-md-4">
                   <CircularGaugeComponent
                     data={this.state.geneva_data}
                   />
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-8">
+                  <LineChartComponent/>
+                </div>
+
+              </div>
+
+              <div className="row">
+
+                {/*Geneva Radial Gauge*/}
+                <div className="col-md-4">
                   <CircularGaugeComponent
                     data={this.state.fawlty_towers_data}
                   />
                 </div>
-
+                {/*<div className="col-md-8">
+                  <LineChartComponent/>
+                </div>*/}
 
               </div>
-              <div className="row">
-              </div>
-
-
-
-
-
-
 
             </div>
           </div>
