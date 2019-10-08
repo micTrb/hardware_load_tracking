@@ -1,10 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 
-import { getLastGenevaRecord, getLastFawltyTowersRecord } from '../../data/queryFunctions';
+import {
+  getLastGenevaRecord,
+  getLastFawltyTowersRecord,
+  getLastHourGeneva, getYesterdayGeneva, getLastWeekGeneva,
+  getLastHourFawltyTowers, getLastWeekFawltyTowers, getYesterdayFawltyTowers
+} from '../../data/queryFunctions';
 
 import CircularGaugeComponent from "./CircularGaugeComponent";
 import DataHistoryComponent from "./DataHistoryComponent";
+import {readableTimestamp} from "../../utils/dateFormatter";
 
 
 class DashboardComponent extends React.Component {
@@ -15,32 +21,21 @@ class DashboardComponent extends React.Component {
     this.state = {
       geneva_data: { cpu: 0, gpu: 0, memory:0, location: "", timestamp: "" },
       fawlty_towers_data: { cpu: 0, gpu: 0, memory:0, location: "", timestamp: "" },
-      geneva_ranges: {
-        geneva_last_week: [],
-        geneva_last_day: [],
-        geneva_last_hour: [],
-        geneva_custom_range: []
-      },
-      fawlty_towers_ranges: {
-        fawlty_towers_last_week: [],
-        fawlty_towers_last_day: [],
-        fawlty_towers_last_hour: [],
-        fawlty_towers_custom_range: []
-      }
+      geneva_range: [],
+      fawlty_towers_range: []
 
     };
 
     this.tickLastData = this.tickLastData.bind(this);
-  }
+    this.setLastHourRangeGeneva = this.setLastHourRangeGeneva.bind(this);
+    this.setLastDayRangeGeneva = this.setLastDayRangeGeneva.bind(this);
+    this.setLastWeekRangeGeneva = this.setLastWeekRangeGeneva.bind(this);
 
-  componentWillMount() {
-    this.tickLastData();
-  }
+    this.setLastHourRangeFawltyTowers = this.setLastHourRangeFawltyTowers.bind(this);
+    this.setLastDayRangeFawltyTowers = this.setLastDayRangeFawltyTowers.bind(this);
+    this.setLastWeekRangeFawltyTowers = this.setLastWeekRangeFawltyTowers.bind(this);
 
-  componentDidMount() {
-    setInterval(() => this.tickLastData(), 3000);
   }
-
 
   //Functions for radial gauge charts
   /****************************************************/
@@ -50,11 +45,12 @@ class DashboardComponent extends React.Component {
 
     // formatting the last record
     let formatted_last_record = {
-      cpu: last_record.cpu,
-      gpu: parseFloat(last_record.gpu),
-      memory: parseFloat(last_record.memory),
+      id: last_record.id,
+      cpu: (Number.isNaN) ? 0 : last_record.cpu.toFixed(2),
+      gpu: (Number.isNaN) ? 0 : parseFloat(last_record.gpu).toFixed(2),
+      memory: (Number.isNaN) ? 0 : parseFloat(last_record.memory).toFixed(2),
       location: last_record.location,
-      timestamp: last_record.timestamp
+      timestamp: readableTimestamp(last_record.timestamp)
     }
     return formatted_last_record;
   }
@@ -62,14 +58,106 @@ class DashboardComponent extends React.Component {
 
   tickLastData() {
     getLastGenevaRecord().then(value => {
-      this.setState({ geneva_data: this.lastRecordPrep(value.data.data.store_metrics[0]) });
+      this.setState({ geneva_data: this.lastRecordPrep(value.data.data.store_metrics[0]) }, () => console.log(this.state));
     });
 
     getLastFawltyTowersRecord().then(value => {
       this.setState({ fawlty_towers_data: this.lastRecordPrep(value.data.data.store_metrics[0]) });
     });
+
+
   }
 
+
+  //Setting ranges for both cities
+  /****************************************************/
+
+  //GENEVA
+  setLastHourRangeGeneva() {
+    getLastHourGeneva().then(value => {
+      console.log(value);
+      let response = value.data.data.store_metrics;
+      console.log(response);
+      this.setState({
+        geneva_range: response.map(obj => this.lastRecordPrep(obj))
+      }, () => console.log(this.state))
+    });
+  }
+
+  setLastDayRangeGeneva() {
+    getYesterdayGeneva().then(value => {
+      console.log(value);
+      let response = value.data.data.store_metrics;
+      console.log(response);
+      this.setState({
+        geneva_range: response.map(obj => this.lastRecordPrep(obj))
+      }, () => console.log(this.state))
+    });
+  }
+
+  setLastWeekRangeGeneva() {
+    getLastWeekGeneva().then(value => {
+      console.log(value);
+      let response = value.data.data.store_metrics;
+      console.log(response);
+      this.setState({
+        geneva_range: response.map(obj => this.lastRecordPrep(obj))
+      }, () => console.log(this.state))
+    });
+  }
+
+
+  /****************************************************/
+
+
+  //FAWLTY TOWERS
+  setLastHourRangeFawltyTowers() {
+    getLastHourFawltyTowers().then(value => {
+      console.log(value);
+      let response = value.data.data.store_metrics;
+      console.log(response);
+      this.setState({
+        fawlty_towers_range: response.map(obj => this.lastRecordPrep(obj))
+      }, () => console.log(this.state))
+    });
+  }
+
+  setLastDayRangeFawltyTowers() {
+    getYesterdayFawltyTowers().then(value => {
+      console.log(value);
+      let response = value.data.data.store_metrics;
+      console.log(response);
+      this.setState({
+        fawlty_towers_range: response.map(obj => this.lastRecordPrep(obj))
+      }, () => console.log(this.state))
+    });
+  }
+
+  setLastWeekRangeFawltyTowers() {
+    getLastWeekFawltyTowers().then(value => {
+      console.log(value);
+      let response = value.data.data.store_metrics;
+      console.log(response);
+      this.setState({
+        fawlty_towers_range: response.map(obj => this.lastRecordPrep(obj))
+      }, () => console.log(this.state))
+    });
+  }
+
+
+
+
+
+
+
+  componentWillMount() {
+    this.tickLastData();
+
+  }
+
+  componentDidMount() {
+    setInterval(() => this.tickLastData(), 3000);
+  }
 
 
 
@@ -92,17 +180,32 @@ class DashboardComponent extends React.Component {
                   />
                 </div>
                 <div className="col-md-8">
-                  <DataHistoryComponent/>
+                  <DataHistoryComponent
+                    location={this.state.geneva_data.location}
+                    data={this.state.geneva_range}
+                    getLastHourRange={this.setLastHourRangeGeneva}
+                    getLastDayRange={this.setLastDayRangeGeneva}
+                    getLastWeekRange={this.setLastWeekRangeGeneva}
+                  />
                 </div>
 
               </div>
 
               <div className="row">
 
-                {/*Geneva Radial Gauge*/}
+                {/*Fawlty Towers Radial Gauge*/}
                 <div className="col-md-4">
                   <CircularGaugeComponent
                     data={this.state.fawlty_towers_data}
+                  />
+                </div>
+                <div className="col-md-8">
+                  <DataHistoryComponent
+                    location={this.state.fawlty_towers_data.location}
+                    data={this.state.fawlty_towers_range}
+                    getLastHourRange={this.setLastHourRangeFawltyTowers}
+                    getLastDayRange={this.setLastDayRangeFawltyTowers}
+                    getLastWeekRange={this.setLastWeekRangeFawltyTowers}
                   />
                 </div>
 

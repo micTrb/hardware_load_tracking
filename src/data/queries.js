@@ -30,6 +30,8 @@ function getTodayFormattedDate() {
 
 function getNowFormattedTime() {
   let now = new Date();
+  let now_fused = now.getHours() - 2;
+  now.setHours(now_fused);
   let now_formatted = dateTimeFormatter(now);
   return now_formatted;
 }
@@ -37,7 +39,7 @@ function getNowFormattedTime() {
 
 function getAnHourAgoFormattedTime() {
   let hour_ago = new Date();
-  let past_hour = hour_ago.getHours() - 1;
+  let past_hour = hour_ago.getHours() - 3;
   hour_ago.setHours(past_hour);
   let hour_ago_formatted = dateTimeFormatter(hour_ago);
 
@@ -60,6 +62,7 @@ export const lastGenevaRecordQuery = `
         limit: 1, 
         order_by: {timestamp: desc}
       ) {
+      id
       cpu,
       gpu,
       memory,
@@ -77,6 +80,7 @@ export const lastFawltyTowersRecordQuery = `
         limit: 1, 
         order_by: {timestamp: desc}
       ) {
+      id
       cpu,
       gpu,
       memory,
@@ -87,7 +91,12 @@ export const lastFawltyTowersRecordQuery = `
 `;
 
 
+/**********************************************************************************************************************/
+/* RANGES QUERIES  */
+/********************************************************************************************************************/
 
+
+//GENEVA
 export const lastWeekGenevaQuery = `
   query {
     store_metrics(
@@ -100,6 +109,7 @@ export const lastWeekGenevaQuery = `
         },
         order_by: {timestamp: asc}
       ) {
+      id
       cpu,
       gpu,
       memory,
@@ -122,6 +132,7 @@ export const yesterdayGenevaQuery = `
         },
         order_by: {timestamp: asc}
       ) {
+      id
       cpu,
       gpu,
       memory,
@@ -139,11 +150,36 @@ export const lastHourGenevaQuery = `
           _and: [
             {location: {_eq: "Geneva"}},
             {timestamp: {_gte: "${ getAnHourAgoFormattedTime() }" }},
-            {timestamp: {_lte: "${ getNowFormattedTime() }" }},
+            {timestamp: {_lte: "${ getNowFormattedTime() }" }}
           ]
         },
         order_by: {timestamp: asc}
       ) {
+      id
+      cpu
+      gpu
+      location
+      memory
+      timestamp
+    }
+  }
+`;
+
+
+//FAWLTY TOWERS
+export const lastWeekFawltyTowersQuery = `
+  query {
+    store_metrics(
+        where: { 
+          _and: [
+            {location: {_eq: "Fawlty Towers"}},
+            {timestamp: {_gte: "${ getWeekAgoFormattedDate() }" }},
+            {timestamp: {_lte: "${ getTodayFormattedDate() }" }},
+          ]
+        },
+        order_by: {timestamp: asc}
+      ) {
+      id
       cpu,
       gpu,
       memory,
@@ -153,5 +189,50 @@ export const lastHourGenevaQuery = `
   }
 `;
 
-console.log(getAnHourAgoFormattedTime());
-console.log(getNowFormattedTime());
+
+export const yesterdayFawltyTowersQuery = `
+  query {
+    store_metrics(
+        where: { 
+          _and: [
+            {location: {_eq: "Fawlty Towers"}},
+            {timestamp: {_gte: "${ getYesterdayFormattedDate() }" }},
+            {timestamp: {_lte: "${ getTodayFormattedDate() }" }},
+          ]
+        },
+        order_by: {timestamp: asc}
+      ) {
+      id
+      cpu,
+      gpu,
+      memory,
+      location,
+      timestamp,
+    }
+  }
+`;
+
+
+export const lastHourFawltyTowersQuery = `
+  query {
+    store_metrics(
+        where: { 
+          _and: [
+            {location: {_eq: "Fawlty Towers"}},
+            {timestamp: {_gte: "${ getAnHourAgoFormattedTime() }" }},
+            {timestamp: {_lte: "${ getNowFormattedTime() }" }}
+          ]
+        },
+        order_by: {timestamp: asc}
+      ) {
+      id
+      cpu
+      gpu
+      location
+      memory
+      timestamp
+    }
+  }
+`;
+
+

@@ -5,7 +5,10 @@ import {
   lastFawltyTowersRecordQuery,
   lastWeekGenevaQuery,
   yesterdayGenevaQuery,
-  lastHourGenevaQuery
+  lastHourGenevaQuery,
+  lastHourFawltyTowersQuery,
+  lastWeekFawltyTowersQuery,
+  yesterdayFawltyTowersQuery
 } from "./queries";
 
 import {endpoint_url, headers} from "./queryConfig";
@@ -58,7 +61,7 @@ export function getLastWeekGeneva() {
     },
     responseType: 'json'
   }).catch(error => { return error });
-}
+};
 
 export function getYesterdayGeneva() {
   return axios({
@@ -70,7 +73,7 @@ export function getYesterdayGeneva() {
     },
     responseType: 'json'
   }).catch(error => { return error });
-}
+};
 
 
 export function getLastHourGeneva() {
@@ -83,5 +86,44 @@ export function getLastHourGeneva() {
     },
     responseType: 'json'
   }).catch(error => { return error });
-}
-;
+};
+
+
+
+//Fawlty Towers city time ranges data
+export function getLastWeekFawltyTowers() {
+  return axios({
+    method: 'post',
+    url: endpoint_url,
+    headers: headers,
+    data: {
+      query: lastWeekFawltyTowersQuery
+    },
+    responseType: 'json'
+  }).catch(error => { return error });
+};
+
+export function getYesterdayFawltyTowers() {
+  return axios({
+    method: 'post',
+    url: endpoint_url,
+    headers: headers,
+    data: {
+      query: yesterdayFawltyTowersQuery
+    },
+    responseType: 'json'
+  }).catch(error => { return error });
+};
+
+
+export function getLastHourFawltyTowers() {
+  return axios({
+    method: 'post',
+    url: endpoint_url,
+    headers: headers,
+    data: {
+      query: lastHourFawltyTowersQuery
+    },
+    responseType: 'json'
+  }).catch(error => { return error });
+};
