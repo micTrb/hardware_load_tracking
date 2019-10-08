@@ -5,11 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,7 +30,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="847">
+            <state relative-caret-position="1683">
               <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
@@ -46,12 +42,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+            <state relative-caret-position="351">
+              <caret line="130" column="16" selection-start-line="130" selection-start-column="16" selection-end-line="130" selection-end-column="16" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="n#!!block;n#createData#0" />
-                <element signature="e#680#926#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/TablePaginationActionsComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="447">
+              <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,6 +138,8 @@
         <option value="$PROJECT_DIR$/src/data/queryFunctions.js" />
         <option value="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.js" />
         <option value="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" />
+        <option value="$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/TableActionsComponentjs" />
+        <option value="$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/TablePaginationActionsComponent.js" />
         <option value="$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js" />
       </list>
     </option>
@@ -148,9 +156,10 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="9" />
     <option name="y" value="23" />
-    <option name="width" value="1902" />
-    <option name="height" value="1095" />
+    <option name="width" value="1850" />
+    <option name="height" value="1101" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -160,6 +169,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,11 +195,18 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="DashboardComponent" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="harware_load_thirdeye_mtarabella" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harware_load_thirdeye_mtarabella" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="DashboardComponent" type="462c0819:PsiDirectoryNode" />
+              <item name="DataHistoryComponent" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -263,18 +280,19 @@
       <workItem from="1570367019902" duration="8712000" />
       <workItem from="1570436995670" duration="11151000" />
       <workItem from="1570523175682" duration="1252000" />
-      <workItem from="1570525093342" duration="2387000" />
+      <workItem from="1570525093342" duration="3092000" />
+      <workItem from="1570539513069" duration="1743000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65740000" />
+    <option name="totallyTimeSpent" value="68188000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1902" height="1095" extended-state="0" />
+    <frame x="9" y="23" width="1850" height="1101" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.19617225" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.2017496" />
       <window_info id="Structure" order="1" sideWeight="0.5007429" side_tool="true" weight="0.24959128" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -288,7 +306,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.34995013" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32303092" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32111" />
       <window_info anchor="bottom" id="GraphQL" order="11" weight="0.32968128" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -369,9 +387,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js</url>
-          <line>25</line>
+          <line>57</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -498,6 +516,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1649">
@@ -532,24 +560,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js">
+    <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/TablePaginationActionsComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+        <state relative-caret-position="447">
+          <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        <state relative-caret-position="351">
+          <caret line="130" column="16" selection-start-line="130" selection-start-column="16" selection-end-line="130" selection-end-column="16" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="n#!!block;n#createData#0" />
-            <element signature="e#680#926#0" />
           </folding>
         </state>
       </provider>
