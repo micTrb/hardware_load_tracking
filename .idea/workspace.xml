@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="31b7b310-3869-453c-90d0-70ebd89afb6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/queries.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/queries.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/queryFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/queryFunctions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/index.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" column="33" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="58" selection-end-column="33" />
+            <state relative-caret-position="847">
+              <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -40,18 +44,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.js">
+        <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="66" column="16" lean-forward="true" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+            <state relative-caret-position="223">
+              <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#226#295#0" />
-                <element signature="e#317#353#0" />
-                <element signature="e#371#470#0" />
-                <element signature="e#488#558#0" />
-                <element signature="e#577#665#0" />
-                <element signature="e#879#1339#0" />
+                <element signature="n#!!block;n#createData#0" />
+                <element signature="e#680#926#0" />
               </folding>
             </state>
           </provider>
@@ -60,7 +60,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
+            <state relative-caret-position="1649">
               <caret line="99" column="20" selection-start-line="99" selection-end-line="100" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -72,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data/queryFunctions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+            <state relative-caret-position="850">
+              <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -85,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/utils/dateFormatter.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -93,13 +93,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data/queries.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="124" column="10" lean-forward="true" selection-start-line="124" selection-start-column="10" selection-end-line="124" selection-end-column="10" />
+            <state relative-caret-position="2108">
+              <caret line="124" column="10" selection-start-line="124" selection-start-column="10" selection-end-line="124" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>filter</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -123,10 +128,11 @@
         <option value="$PROJECT_DIR$/src/data/queryConfig.js" />
         <option value="$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js" />
         <option value="$PROJECT_DIR$/src/utils/dateFormatter.js" />
-        <option value="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" />
         <option value="$PROJECT_DIR$/src/data/queries.js" />
         <option value="$PROJECT_DIR$/src/data/queryFunctions.js" />
         <option value="$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.js" />
+        <option value="$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js" />
+        <option value="$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js" />
       </list>
     </option>
   </component>
@@ -179,22 +185,6 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="DashboardComponent" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="harware_load_thirdeye_mtarabella" type="b2602c69:ProjectViewProjectNode" />
-              <item name="harware_load_thirdeye_mtarabella" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="DashboardComponent" type="462c0819:PsiDirectoryNode" />
-              <item name="CircularGaugeComponent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="harware_load_thirdeye_mtarabella" type="b2602c69:ProjectViewProjectNode" />
-              <item name="harware_load_thirdeye_mtarabella" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="DashboardComponent" type="462c0819:PsiDirectoryNode" />
-              <item name="LineChartComponent" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -220,8 +210,8 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/DashboardComponent" />
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -271,18 +261,20 @@
       <workItem from="1570267641847" duration="17361000" />
       <workItem from="1570349146018" duration="6359000" />
       <workItem from="1570367019902" duration="8712000" />
-      <workItem from="1570436995670" duration="11052000" />
+      <workItem from="1570436995670" duration="11151000" />
+      <workItem from="1570523175682" duration="1252000" />
+      <workItem from="1570525093342" duration="2387000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62002000" />
+    <option name="totallyTimeSpent" value="65740000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1902" height="1095" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.19617225" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.19617225" />
       <window_info id="Structure" order="1" sideWeight="0.5007429" side_tool="true" weight="0.24959128" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -296,7 +288,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.34995013" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32303092" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32303092" />
       <window_info anchor="bottom" id="GraphQL" order="11" weight="0.32968128" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -374,6 +366,12 @@
           <url>file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts</url>
           <line>295</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js</url>
+          <line>25</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -482,13 +480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -499,43 +490,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/queries.js">
+    <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.js" />
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="124" column="10" lean-forward="true" selection-start-line="124" selection-start-column="10" selection-end-line="124" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/dateFormatter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="33" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="58" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/queryFunctions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/CircularGaugeComponent/CircularGaugeComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
+        <state relative-caret-position="1649">
           <caret line="99" column="20" selection-start-line="99" selection-end-line="100" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -543,18 +508,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/LineChartComponent/LineChartComponent.js">
+    <entry file="file://$PROJECT_DIR$/src/data/queryFunctions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="66" column="16" lean-forward="true" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+        <state relative-caret-position="850">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#226#295#0" />
-            <element signature="e#317#353#0" />
-            <element signature="e#371#470#0" />
-            <element signature="e#488#558#0" />
-            <element signature="e#577#665#0" />
-            <element signature="e#879#1339#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/dateFormatter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/queries.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="124" column="10" selection-start-line="124" selection-start-column="10" selection-end-line="124" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DashboardComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="847">
+          <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/DashboardComponent/DataHistoryComponent/DataHistoryComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!block;n#createData#0" />
+            <element signature="e#680#926#0" />
           </folding>
         </state>
       </provider>

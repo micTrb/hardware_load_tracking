@@ -4,7 +4,7 @@ import React from 'react';
 import { getLastGenevaRecord, getLastFawltyTowersRecord } from '../../data/queryFunctions';
 
 import CircularGaugeComponent from "./CircularGaugeComponent";
-import LineChartComponent from "./LineChartComponent";
+import DataHistoryComponent from "./DataHistoryComponent";
 
 
 class DashboardComponent extends React.Component {
@@ -92,7 +92,7 @@ class DashboardComponent extends React.Component {
                   />
                 </div>
                 <div className="col-md-8">
-                  <LineChartComponent/>
+                  <DataHistoryComponent/>
                 </div>
 
               </div>
@@ -105,9 +105,7 @@ class DashboardComponent extends React.Component {
                     data={this.state.fawlty_towers_data}
                   />
                 </div>
-                {/*<div className="col-md-8">
-                  <LineChartComponent/>
-                </div>*/}
+
 
               </div>
 
