@@ -46,9 +46,9 @@ class DashboardComponent extends React.Component {
     // formatting the last record
     let formatted_last_record = {
       id: last_record.id,
-      cpu: (Number.isNaN) ? 0 : last_record.cpu.toFixed(2),
-      gpu: (Number.isNaN) ? 0 : parseFloat(last_record.gpu).toFixed(2),
-      memory: (Number.isNaN) ? 0 : parseFloat(last_record.memory).toFixed(2),
+      cpu: (last_record.cpu == null) ? 0 : last_record.cpu.toFixed(2),
+      gpu: (last_record.gpu == null) ? 0 : parseFloat(last_record.gpu).toFixed(2),
+      memory: (last_record.memory == null) ? 0 : parseFloat(last_record.memory).toFixed(2),
       location: last_record.location,
       timestamp: readableTimestamp(last_record.timestamp)
     }
@@ -190,6 +190,8 @@ class DashboardComponent extends React.Component {
                 </div>
 
               </div>
+
+              <br/>
 
               <div className="row">
 
