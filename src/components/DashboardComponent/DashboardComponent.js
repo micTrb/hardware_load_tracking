@@ -23,17 +23,18 @@ class DashboardComponent extends React.Component {
       fawlty_towers_data: { cpu: 0, gpu: 0, memory:0, location: "", timestamp: "" },
       geneva_range: [],
       fawlty_towers_range: []
-
     };
 
     this.tickLastData = this.tickLastData.bind(this);
     this.setLastHourRangeGeneva = this.setLastHourRangeGeneva.bind(this);
     this.setLastDayRangeGeneva = this.setLastDayRangeGeneva.bind(this);
     this.setLastWeekRangeGeneva = this.setLastWeekRangeGeneva.bind(this);
+    this.getGenevaAnomalies = this.getGenevaAnomalies.bind(this);
 
     this.setLastHourRangeFawltyTowers = this.setLastHourRangeFawltyTowers.bind(this);
     this.setLastDayRangeFawltyTowers = this.setLastDayRangeFawltyTowers.bind(this);
     this.setLastWeekRangeFawltyTowers = this.setLastWeekRangeFawltyTowers.bind(this);
+    this.getFawltyTowersAnomalies = this.getFawltyTowersAnomalies.bind(this);
 
   }
 
@@ -48,7 +49,7 @@ class DashboardComponent extends React.Component {
       id: last_record.id,
       cpu: (last_record.cpu == null) ? 0 : last_record.cpu.toFixed(2),
       gpu: (last_record.gpu == null) ? 0 : parseFloat(last_record.gpu).toFixed(2),
-      memory: (last_record.memory == null) ? 0 : parseFloat(last_record.memory).toFixed(2),
+      memory: (isNaN(last_record.memory) || last_record.memory == null) ? 0 : parseFloat(last_record.memory).toFixed(2),
       location: last_record.location,
       timestamp: readableTimestamp(last_record.timestamp)
     }
@@ -58,7 +59,7 @@ class DashboardComponent extends React.Component {
 
   tickLastData() {
     getLastGenevaRecord().then(value => {
-      this.setState({ geneva_data: this.lastRecordPrep(value.data.data.store_metrics[0]) }, () => console.log(this.state));
+      this.setState({ geneva_data: this.lastRecordPrep(value.data.data.store_metrics[0]) });
     });
 
     getLastFawltyTowersRecord().then(value => {
@@ -75,36 +76,37 @@ class DashboardComponent extends React.Component {
   //GENEVA
   setLastHourRangeGeneva() {
     getLastHourGeneva().then(value => {
-      console.log(value);
       let response = value.data.data.store_metrics;
-      console.log(response);
       this.setState({
         geneva_range: response.map(obj => this.lastRecordPrep(obj))
-      }, () => console.log(this.state))
+      })
     });
   }
 
   setLastDayRangeGeneva() {
     getYesterdayGeneva().then(value => {
-      console.log(value);
       let response = value.data.data.store_metrics;
-      console.log(response);
       this.setState({
         geneva_range: response.map(obj => this.lastRecordPrep(obj))
-      }, () => console.log(this.state))
+      })
     });
   }
 
   setLastWeekRangeGeneva() {
     getLastWeekGeneva().then(value => {
-      console.log(value);
       let response = value.data.data.store_metrics;
-      console.log(response);
       this.setState({
         geneva_range: response.map(obj => this.lastRecordPrep(obj))
-      }, () => console.log(this.state))
+      })
     });
   }
+
+
+
+  getGenevaAnomalies() {
+    console.log("ANO");
+  }
+
 
 
   /****************************************************/
@@ -113,41 +115,34 @@ class DashboardComponent extends React.Component {
   //FAWLTY TOWERS
   setLastHourRangeFawltyTowers() {
     getLastHourFawltyTowers().then(value => {
-      console.log(value);
       let response = value.data.data.store_metrics;
-      console.log(response);
       this.setState({
         fawlty_towers_range: response.map(obj => this.lastRecordPrep(obj))
-      }, () => console.log(this.state))
+      })
     });
   }
 
   setLastDayRangeFawltyTowers() {
     getYesterdayFawltyTowers().then(value => {
-      console.log(value);
       let response = value.data.data.store_metrics;
-      console.log(response);
       this.setState({
         fawlty_towers_range: response.map(obj => this.lastRecordPrep(obj))
-      }, () => console.log(this.state))
+      })
     });
   }
 
   setLastWeekRangeFawltyTowers() {
     getLastWeekFawltyTowers().then(value => {
-      console.log(value);
       let response = value.data.data.store_metrics;
-      console.log(response);
       this.setState({
         fawlty_towers_range: response.map(obj => this.lastRecordPrep(obj))
-      }, () => console.log(this.state))
+      })
     });
   }
 
-
-
-
-
+  getFawltyTowersAnomalies() {
+    console.log("ANO");
+  }
 
 
   componentWillMount() {
@@ -159,22 +154,31 @@ class DashboardComponent extends React.Component {
     setInterval(() => this.tickLastData(), 3000);
   }
 
-
-
   render() {
-
     return (
       <div>
         <div className="content-area">
           <div className="container-fluid">
-            <div className="main" style={{paddingTop: "50px"}}>
+            <div className="main" style={{padding: "50px"}}>
 
               {/* First Row */ }
 
+              {/*TITLE*/}
               <div className="row">
+                <div className="col-md-2">
+                </div>
+                <div className="col-md-8">
+                  <h2>Geneva</h2>
+                </div>
+                <div className="col-md-2">
+                </div>
+              </div>
 
+              <br/>
+
+              <div className="row">
                 {/*Geneva Radial Gauge*/}
-                <div className="col-md-4">
+                <div className="col-md-3">
                   <CircularGaugeComponent
                     data={this.state.geneva_data}
                   />
@@ -183,20 +187,41 @@ class DashboardComponent extends React.Component {
                   <DataHistoryComponent
                     location={this.state.geneva_data.location}
                     data={this.state.geneva_range}
+                    lastData={this.state.geneva_data}
                     getLastHourRange={this.setLastHourRangeGeneva}
                     getLastDayRange={this.setLastDayRangeGeneva}
                     getLastWeekRange={this.setLastWeekRangeGeneva}
+                    getAnomalies={this.getGenevaAnomalies}
                   />
                 </div>
 
               </div>
 
               <br/>
+              <br/>
+              <hr/>
+              <br/>
+              <br/>
+
+              {/*Second row*/}
+
+              {/*TITLE*/}
+              <div className="row">
+                <div className="col-md-2">
+                </div>
+                <div className="col-md-8">
+                  <h2>Fawlty towers</h2>
+                </div>
+                <div className="col-md-2">
+                </div>
+              </div>
+
+              <br/>
 
               <div className="row">
-
                 {/*Fawlty Towers Radial Gauge*/}
-                <div className="col-md-4">
+                <div className="col-md-3">
+
                   <CircularGaugeComponent
                     data={this.state.fawlty_towers_data}
                   />
@@ -205,15 +230,14 @@ class DashboardComponent extends React.Component {
                   <DataHistoryComponent
                     location={this.state.fawlty_towers_data.location}
                     data={this.state.fawlty_towers_range}
+                    lastData={this.state.fawlty_towers_data}
                     getLastHourRange={this.setLastHourRangeFawltyTowers}
                     getLastDayRange={this.setLastDayRangeFawltyTowers}
                     getLastWeekRange={this.setLastWeekRangeFawltyTowers}
+                    getAnomalies={this.getFawltyTowersAnomalies}
                   />
                 </div>
-
-
               </div>
-
             </div>
           </div>
         </div>

@@ -81,7 +81,7 @@ class CircularGaugeComponent extends React.Component {
   render() {
     return(
       <div id="chart">
-        <h4>{this.props.data.location} hardware load percentage</h4>
+        <h6>Hardware load percentage</h6>
         <ReactApexCharts
           options={this.state.options}
           series={this.state.series}
