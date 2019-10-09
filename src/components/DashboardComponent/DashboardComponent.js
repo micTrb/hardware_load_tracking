@@ -121,7 +121,7 @@ class DashboardComponent extends React.Component {
   }
 
   setGenevaCustomTimeRange(range) {
-    this.setState({geneva_custom_time_range: range}, () => console.log(this.state.geneva_custom_time_range));
+    this.setState({geneva_custom_time_range: range});
     //getCustomTimestampGeneva(range);
   }
 
@@ -221,7 +221,7 @@ class DashboardComponent extends React.Component {
                     getAnomalies={this.getGenevaAnomalies}
                   />
                   <br/>
-                  <div>
+                  {/*<div>
                     <h4>Select custom timestamp range</h4>
                     <h6><b>Start time:</b> {this.state.geneva_custom_time_range.start} <b>End time: </b>{this.state.geneva_custom_time_range.end}</h6>
                     <TimeRangeSlider
@@ -233,7 +233,7 @@ class DashboardComponent extends React.Component {
                       onChange={this.setGenevaCustomTimeRange}
                       step={15}
                       value={this.state.geneva_custom_time_range}/>
-                  </div>
+                  </div>*/}
                 </div>
 
               </div>
