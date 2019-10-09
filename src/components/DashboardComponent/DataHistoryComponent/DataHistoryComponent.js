@@ -30,7 +30,7 @@ const styles = {
     overflowX: 'auto',
   },
   table: {
-    minWidth: 650,
+    minWidth: 450,
   },
   tableTitle: {
     flex: '0 0 auto',
@@ -154,7 +154,7 @@ class DataHistoryComponent extends React.Component {
 
 
         {/*TABLE*/}
-        <div className="col-md-10">
+        <div className="col-md-8">
           <h6>Log history</h6>
           <Paper className={this.props.classes.root} width={100}>
             <div className={this.props.classes.tableTitle}>
@@ -199,14 +199,12 @@ class DataHistoryComponent extends React.Component {
                     this.state.page * this.state.rowsPerPage + this.state.rowsPerPage).map(row =>
                     (row.cpu > 0.80 || row.gpu > 0.80 || row.memory > 0.80) ?
                       (<TableRow key={row.id} style={{ height: (this.state.dense ? 33 : 53) }} className={this.props.classes.redRow}>
-                        <TableCell align="right">{row.id}</TableCell>
                         <TableCell align="right">{row.timestamp}</TableCell>
                         <TableCell align="right">{row.cpu}</TableCell>
                         <TableCell align="right">{row.gpu}</TableCell>
                         <TableCell align="right">{row.memory}</TableCell>
                       </TableRow>) :
                       (<TableRow key={row.id} >
-                        <TableCell align="right">{row.id}</TableCell>
                         <TableCell align="right">{row.timestamp}</TableCell>
                         <TableCell align="right">{row.cpu}</TableCell>
                         <TableCell align="right">{row.gpu}</TableCell>
@@ -249,6 +247,7 @@ class DataHistoryComponent extends React.Component {
 
           {/*BUTTON LIST*/}
           <div>
+
             <ul className={`list-group list-group-horizontal ${this.props.classes.buttonList}`}>
               <li className={`list-group list-group-horizontal ${this.props.classes.listEl}`}>
                 <button className={`btn btn-primary ${this.props.classes.button}`} onClick={this.onClickLastWeek}>Last Week</button>
@@ -262,7 +261,6 @@ class DataHistoryComponent extends React.Component {
               <li className={`list-group list-group-horizontal ${this.props.classes.listEl}`}>
                 <button className={`btn btn-danger ${this.props.classes.button}`} onClick={this.onClickAnomalies}>Get anomalies</button>
               </li>
-
             </ul>
           </div>
 

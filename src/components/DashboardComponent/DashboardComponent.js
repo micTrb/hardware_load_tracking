@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import _ from 'lodash';
 
 import {
   getLastGenevaRecord,
@@ -11,6 +12,7 @@ import {
 import CircularGaugeComponent from "./CircularGaugeComponent";
 import DataHistoryComponent from "./DataHistoryComponent";
 import {readableTimestamp} from "../../utils/dateFormatter";
+import {checkAnomalie, dataPrep} from "../../utils/mathCalculations";
 
 
 class DashboardComponent extends React.Component {
@@ -47,7 +49,7 @@ class DashboardComponent extends React.Component {
     // formatting the last record
     let formatted_last_record = {
       id: last_record.id,
-      cpu: (last_record.cpu == null) ? 0 : last_record.cpu.toFixed(2),
+      cpu: (last_record.cpu == null) ? 0 : parseFloat(last_record.cpu).toFixed(2),
       gpu: (last_record.gpu == null) ? 0 : parseFloat(last_record.gpu).toFixed(2),
       memory: (isNaN(last_record.memory) || last_record.memory == null) ? 0 : parseFloat(last_record.memory).toFixed(2),
       location: last_record.location,
@@ -104,7 +106,13 @@ class DashboardComponent extends React.Component {
 
 
   getGenevaAnomalies() {
-    console.log("ANO");
+    let range = this.state.geneva_range;
+    let anomalies_range = range.map(obj => {
+      let prepObj = dataPrep(obj);
+      return checkAnomalie(prepObj);
+    });
+
+    this.setState({ geneva_range: _.compact(anomalies_range) })
   }
 
 
@@ -141,9 +149,18 @@ class DashboardComponent extends React.Component {
   }
 
   getFawltyTowersAnomalies() {
-    console.log("ANO");
+    let range = this.state.fawlty_towers_range;
+    let anomalies_range = range.map(obj => {
+      let prepObj = dataPrep(obj);
+      return checkAnomalie(prepObj);
+    });
+
+    this.setState({ fawlty_towers_range: _.compact(anomalies_range) })
   }
 
+
+  //Lifecycle hooks
+  /****************************************************/
 
   componentWillMount() {
     this.tickLastData();

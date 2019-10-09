@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {readableTimestamp} from "./dateFormatter";
 
-function dataPrep(data) {
+export function dataPrep(data) {
 
   // formatting the last record
   let formatted_data = {
@@ -10,9 +10,13 @@ function dataPrep(data) {
     gpu: (data.gpu == null) ? 0 : parseFloat(data.gpu),
     memory: (data.memory == null || Number.isNaN(data.memory)) ? 0 : parseFloat(data.memory),
     location: data.location,
-    timestamp: readableTimestamp(data.timestamp)
+    timestamp: data.timestamp
   }
   return formatted_data;
+}
+
+export function checkAnomalie(obj) {
+  if(obj.cpu > 0.80 || obj.gpu > 0.80 || obj.memory > 0.80) return obj;
 }
 
 export function getHardwareAvg(hardwareName, array) {
