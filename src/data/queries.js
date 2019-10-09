@@ -46,6 +46,14 @@ function getAnHourAgoFormattedTime() {
   return hour_ago_formatted;
 }
 
+export function getTime() {
+  let time = new Date();
+  let time_fused = time.getHours() - 2;
+  time.setHours(time_fused);
+  let time_formatted = dateTimeFormatter(time);
+  return time_formatted;
+}
+
 
 
 /**********************************************************************************************************************/

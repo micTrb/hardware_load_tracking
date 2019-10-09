@@ -13,6 +13,7 @@ import CircularGaugeComponent from "./CircularGaugeComponent";
 import DataHistoryComponent from "./DataHistoryComponent";
 import {readableTimestamp} from "../../utils/dateFormatter";
 import {checkAnomalie, dataPrep} from "../../utils/mathCalculations";
+import TimeRangeSlider from "react-time-range-slider";
 
 
 class DashboardComponent extends React.Component {
@@ -24,7 +25,13 @@ class DashboardComponent extends React.Component {
       geneva_data: { cpu: 0, gpu: 0, memory:0, location: "", timestamp: "" },
       fawlty_towers_data: { cpu: 0, gpu: 0, memory:0, location: "", timestamp: "" },
       geneva_range: [],
-      fawlty_towers_range: []
+      fawlty_towers_range: [],
+      geneva_custom_time_range: {
+        start: "00:00",
+        end: "23:59"
+      },
+      fawlty_towers_custom_time_range: {}
+
     };
 
     this.tickLastData = this.tickLastData.bind(this);
@@ -32,6 +39,7 @@ class DashboardComponent extends React.Component {
     this.setLastDayRangeGeneva = this.setLastDayRangeGeneva.bind(this);
     this.setLastWeekRangeGeneva = this.setLastWeekRangeGeneva.bind(this);
     this.getGenevaAnomalies = this.getGenevaAnomalies.bind(this);
+    this.setGenevaCustomTimeRange = this.setGenevaCustomTimeRange.bind(this);
 
     this.setLastHourRangeFawltyTowers = this.setLastHourRangeFawltyTowers.bind(this);
     this.setLastDayRangeFawltyTowers = this.setLastDayRangeFawltyTowers.bind(this);
@@ -57,7 +65,6 @@ class DashboardComponent extends React.Component {
     }
     return formatted_last_record;
   }
-
 
   tickLastData() {
     getLastGenevaRecord().then(value => {
@@ -103,8 +110,6 @@ class DashboardComponent extends React.Component {
     });
   }
 
-
-
   getGenevaAnomalies() {
     let range = this.state.geneva_range;
     let anomalies_range = range.map(obj => {
@@ -115,10 +120,13 @@ class DashboardComponent extends React.Component {
     this.setState({ geneva_range: _.compact(anomalies_range) })
   }
 
+  setGenevaCustomTimeRange(range) {
+    this.setState({geneva_custom_time_range: range}, () => console.log(this.state.geneva_custom_time_range));
+    //getCustomTimestampGeneva(range);
+  }
 
 
   /****************************************************/
-
 
   //FAWLTY TOWERS
   setLastHourRangeFawltyTowers() {
@@ -171,6 +179,8 @@ class DashboardComponent extends React.Component {
     setInterval(() => this.tickLastData(), 3000);
   }
 
+
+
   render() {
     return (
       <div>
@@ -210,6 +220,20 @@ class DashboardComponent extends React.Component {
                     getLastWeekRange={this.setLastWeekRangeGeneva}
                     getAnomalies={this.getGenevaAnomalies}
                   />
+                  <br/>
+                  <div>
+                    <h4>Select custom timestamp range</h4>
+                    <h6><b>Start time:</b> {this.state.geneva_custom_time_range.start} <b>End time: </b>{this.state.geneva_custom_time_range.end}</h6>
+                    <TimeRangeSlider
+                      disabled={false}
+                      format={24}
+                      maxValue={"23:59"}
+                      minValue={"00:00"}
+                      name={"time_range"}
+                      onChange={this.setGenevaCustomTimeRange}
+                      step={15}
+                      value={this.state.geneva_custom_time_range}/>
+                  </div>
                 </div>
 
               </div>

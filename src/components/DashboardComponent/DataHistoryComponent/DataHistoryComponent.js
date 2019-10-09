@@ -12,10 +12,10 @@ import TablePagination from '@material-ui/core/TablePagination';
 import Paper from '@material-ui/core/Paper';
 import { columns } from "./tableConfigs";
 
-
 import { getHardwareAvg } from "../../../utils/mathCalculations";
 
 import TablePaginationActionsComponent from './TablePaginationActionsComponent';
+
 import StatsComponent from './StatsComponent';
 
 import Typography from "@material-ui/core/Typography";
@@ -92,8 +92,8 @@ class DataHistoryComponent extends React.Component {
       rowsPerPage: 5,
       dense: true,
       dataLenght: 0,
-      rangeSelected: "last_hour"
-      //emptyRows: this.state.rowsPerPage - Math.min(this.state.rowsPerPage, this.state.rows.length - this.state.page * this.state.rowsPerPage)
+      rangeSelected: "last_hour",
+
     };
 
     this.handleChangePage = this.handleChangePage.bind(this);
@@ -141,10 +141,17 @@ class DataHistoryComponent extends React.Component {
     this.props.getAnomalies();
   }
 
+
+
+
+  /*********************************************************************************************************************/
+
   componentDidMount() {
     this.props.getLastHourRange();
   }
 
+
+  /* RENDER */
 
   render() {
     return (
@@ -265,6 +272,8 @@ class DataHistoryComponent extends React.Component {
           </div>
 
         </div>
+
+
 
         {/*AVERAGES Table*/}
         <div className="col-md-2" >

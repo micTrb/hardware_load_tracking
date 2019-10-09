@@ -8,7 +8,7 @@ import {
   lastHourGenevaQuery,
   lastHourFawltyTowersQuery,
   lastWeekFawltyTowersQuery,
-  yesterdayFawltyTowersQuery
+  yesterdayFawltyTowersQuery,
 } from "./queries";
 
 import {endpoint_url, headers} from "./queryConfig";
@@ -87,6 +87,50 @@ export function getLastHourGeneva() {
     responseType: 'json'
   }).catch(error => { return error });
 };
+
+/*
+export function getCustomTimestampGeneva(rangeObj) {
+
+  console.log(rangeObj.start, rangeObj.end);
+
+
+  return axios({
+    method: 'post',
+    url: endpoint_url,
+    headers: headers,
+    data: {
+      query: `
+        query {
+          store_metrics(
+              where: {
+              _and: [
+                {location: {_eq: "Fawlty Towers"}},
+                {timestamp: {_gte: "" }},
+                {timestamp: {_lte: "" }}
+              ]
+            },
+            order_by: {timestamp: asc}
+          ) {
+              id
+              cpu
+              gpu
+              location
+              memory
+              timestamp
+            }
+          }
+        `
+    },
+    responseType: 'json'
+  }).catch(error => { return error });
+
+}
+*/
+
+
+
+
+
 
 
 

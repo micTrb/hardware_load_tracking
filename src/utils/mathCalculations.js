@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import {readableTimestamp} from "./dateFormatter";
 
 export function dataPrep(data) {
 

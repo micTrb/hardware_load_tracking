@@ -25,6 +25,20 @@ export function dateTimeFormatter(date) {
     (s <= 9 ? '0' + s : s);
 }
 
+export function timeFormatter(date) {
+
+  var h = date.getHours();
+  var min = date.getMinutes();
+  var s = date.getSeconds();
+
+  return 'T' +
+    (h <= 9 ? '0' + h : h) + ':' +
+    (min <= 9 ? '0' + min : min) + ':' +
+    (s <= 9 ? '0' + s : s);
+}
+
+
+
 export function readableTimestamp(timestamp) {
   var date = new Date(timestamp);
 
