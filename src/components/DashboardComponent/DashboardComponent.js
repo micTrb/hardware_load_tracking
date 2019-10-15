@@ -13,7 +13,6 @@ import CircularGaugeComponent from "./CircularGaugeComponent";
 import DataHistoryComponent from "./DataHistoryComponent";
 import {readableTimestamp} from "../../utils/dateFormatter";
 import {checkAnomalie, dataPrep} from "../../utils/mathCalculations";
-import TimeRangeSlider from "react-time-range-slider";
 
 
 class DashboardComponent extends React.Component {
@@ -221,19 +220,6 @@ class DashboardComponent extends React.Component {
                     getAnomalies={this.getGenevaAnomalies}
                   />
                   <br/>
-                  {/*<div>
-                    <h4>Select custom timestamp range</h4>
-                    <h6><b>Start time:</b> {this.state.geneva_custom_time_range.start} <b>End time: </b>{this.state.geneva_custom_time_range.end}</h6>
-                    <TimeRangeSlider
-                      disabled={false}
-                      format={24}
-                      maxValue={"23:59"}
-                      minValue={"00:00"}
-                      name={"time_range"}
-                      onChange={this.setGenevaCustomTimeRange}
-                      step={15}
-                      value={this.state.geneva_custom_time_range}/>
-                  </div>*/}
                 </div>
 
               </div>

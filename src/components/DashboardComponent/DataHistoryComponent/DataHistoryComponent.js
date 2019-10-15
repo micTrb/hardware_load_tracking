@@ -14,7 +14,8 @@ import { columns } from "./tableConfigs";
 
 import { getHardwareAvg } from "../../../utils/mathCalculations";
 
-import TablePaginationActionsComponent from './TablePaginationActionsComponent';
+import TablePaginationActionsComponent from './components/TablePaginationActionsComponent';
+import ButtonListComponent from './components/ButtonListComponent';
 
 import StatsComponent from './StatsComponent';
 
@@ -37,25 +38,7 @@ const styles = {
     padding: "10px",
     float: "left"
   },
-  buttonList: [{
-    paddingLeft: "0%",
-    listStyle: "none",
-    margin: "0%",
-    overflow: "hidden"
-  },
-    {mainClass: "list-group list-group-horizontal"}],
-  listEl: {
-    float: "left",
-    height: "40px",
-    paddingRight:"10px",
-    marginTop: "10px",
 
-  },
-  button: {
-    display: "block",
-    width: "130px",
-
-  },
   redRow: {
     backgroundColor: '#ff3900',
     color: '#ffffff'
@@ -245,6 +228,7 @@ class DataHistoryComponent extends React.Component {
               </TableFooter>
             </Table>
           </Paper>
+
           <FormControlLabel
             className={this.props.classes.switchDense}
             control={<Switch checked={this.state.dense} onChange={this.handleChangeDense} />}
@@ -253,23 +237,15 @@ class DataHistoryComponent extends React.Component {
 
 
           {/*BUTTON LIST*/}
-          <div>
 
-            <ul className={`list-group list-group-horizontal ${this.props.classes.buttonList}`}>
-              <li className={`list-group list-group-horizontal ${this.props.classes.listEl}`}>
-                <button className={`btn btn-primary ${this.props.classes.button}`} onClick={this.onClickLastWeek}>Last Week</button>
-              </li>
-              <li className={`list-group list-group-horizontal ${this.props.classes.listEl}`}>
-                <button className={`btn btn-primary ${this.props.classes.button}`} onClick={this.onClickLastDay}>Last Day</button>
-              </li>
-              <li className={`list-group list-group-horizontal ${this.props.classes.listEl}`}>
-                <button className={`btn btn-primary ${this.props.classes.button}`} onClick={this.onClickLastHour}>Last Hour</button>
-              </li>
-              <li className={`list-group list-group-horizontal ${this.props.classes.listEl}`}>
-                <button className={`btn btn-danger ${this.props.classes.button}`} onClick={this.onClickAnomalies}>Get anomalies</button>
-              </li>
-            </ul>
-          </div>
+          {/* ********************* BUTTONsss */}
+
+          <ButtonListComponent
+            getLastWeek={this.onClickLastWeek}
+            getLastDayRange={this.onClickLastDay}
+            getLastHourRange={this.onClickLastHour}
+            getAnomalies={this.onClickAnomalies}
+          />
 
         </div>
 
